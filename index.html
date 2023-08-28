@@ -1,39 +1,70 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Assembly Language IDE</title>
-    <link rel="stylesheet" href="codemirror-5.65.14/lib/codemirror.css" />
-    <link rel="stylesheet" href="codemirror-5.65.14/theme/dracula.css" />
-    <!-- <script src="codemirror-5.65.14/mode/xml/xml.js"></script> -->
-    <script src="codemirror-5.65.14/addon/edit/"></script>
 
-    <link rel="stylesheet" href="style.css" />
-    <!-- Replace with your preferred theme -->
-  </head>
-  <body>
-    <div class="internal_memory">
-      <div class="inner">
-        <div class="reg">Register</div>
-        <div class="flag">Flag</div>
+<head>
+  <title>Assembly Language IDE</title>
+  <link rel="stylesheet" href="codemirror-5.65.14/lib/codemirror.css" />
+  <link rel="stylesheet" href="codemirror-5.65.14/theme/dracula.css" />
+  <!-- <script src="codemirror-5.65.14/mode/xml/xml.js"></script> -->
+  <script src="codemirror-5.65.14/addon/edit/"></script>
+  <link rel="stylesheet"
+    href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+
+
+  <link rel="stylesheet" href="style.css" />
+  <!-- Replace with your preferred theme -->
+</head>
+
+<body>
+  <div class="internal_memory">
+    <div class="inner">
+      <div class="reg">Register</div>
+      <div class="flag">Flag</div>
+    </div>
+    <div class="outer">
+      <div class="conv" id="conv1">
+        <p>Decimal</p>
+        <p>Hex</p>
+        <input type="text" value="0" id="decimal">
+        <input type="text" value="0" id="hex">
+        <input type="button" value="To HEX" onclick="decimalToHex()">
+        <input type="button" value="To DEC" onclick="hexToDecimal()">
       </div>
-      <div class="outer">
-        <div class="conv" id="conv1">Hex Converter</div>
-        <div class="conv" id="conv2">I/O Port</div>
-        <div class="conv" id="conv3">Memory</div>
-      </div>
+      <div class="conv" id="conv2">I/O Port</div>
+      <div class="conv" id="conv3">Memory</div>
     </div>
-    <div style="height: 100%; width: 100%">
-      <textarea id="editor">MOV,A 2050h</textarea>
-      <div class="Output"></div>
+  </div>
+  <div class="mid" style="min-height: 100vh; width: 100%;">
+    <div class="editor-setting">
+      <span class="material-symbols-outlined" onclick="zoomin()">zoom_in</span>
+      <span class="material-symbols-outlined" onclick="zoomout()">zoom_out</span>
     </div>
-    <div class="external_memory">
-      <div class="memory"><div class="memoryin">Memory display</div></div>
-      <div class="io"><div class="ioin">I/O Display</div></div>
+    <textarea id="editor">MOV,A 2050h</textarea>
+    <!-- <div class="Output"></div> -->
+  </div>
+  <div class="external_memory">
+    <div class="memory">
+      <div class="memoryin">Memory display</div>
     </div>
+    <div class="io">
+      <div class="ioin">I/O Display</div>
+    </div>
+  </div>
 
-    <script src="codemirror-5.65.14/lib/codemirror.js"></script>
+  <script src="codemirror-5.65.14/lib/codemirror.js"></script>
 
-    <script src="/codemirror-5.65.14/mode/assembly/assembly.js"></script>
-    <script src="script.js"></script>
-  </body>
+  <script src="/codemirror-5.65.14/mode/assembly/assembly.js"></script>
+  <script src="script.js"></script>
+</body>
+<script src="/controllers/conversion.js"></script>
+<script>
+  const code_editor = document.querySelector('.CodeMirror');
+  function zoomin() {
+    code_editor.style.fontSize = (parseInt(getComputedStyle(code_editor).fontSize) + 1) + "px";
+  }
+  function zoomout() {
+    code_editor.style.fontSize = (parseInt(getComputedStyle(code_editor).fontSize) - 1) + "px";
+  }
+</script>
+
 </html>
