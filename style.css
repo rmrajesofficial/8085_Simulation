@@ -73,6 +73,7 @@ body {
 
 .inner {
   display: flex;
+  padding: 5px;
 }
 
 .reg,
@@ -86,22 +87,25 @@ body {
 
 .memoryin,
 .ioin {
-  height: 95%;
+  /* height: 95%; */
+  height: 190px;
   background-color: white;
+  
 }
 
 .reg {
-  width: 60%;
+  width: 90%;
 }
 
 .flag {
-  width: 40%;
+  width: 90%;
 }
-
+.arm{
+  float: left;
+  width:33%;
+}
 .conv {
   font-size: 14px;
-  /* height: 80px; */
-  /* width: auto; */
   border: 2px solid rgba(159, 157, 157, 0.677);
   border-radius: 5px;
   margin: 5px;

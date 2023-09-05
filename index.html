@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html>
-
 <head>
   <title>Assembly Language IDE</title>
   <link rel="stylesheet" href="codemirror-5.65.14/lib/codemirror.css" />
@@ -9,8 +8,6 @@
   <script src="codemirror-5.65.14/addon/edit/"></script>
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
-
-
   <link rel="stylesheet" href="style.css" />
   <!-- Replace with your preferred theme -->
 </head>
@@ -18,8 +15,24 @@
 <body>
   <div class="internal_memory">
     <div class="inner">
-      <div class="reg">Register</div>
-      <div class="flag">Flag</div>
+      <div style="width: 70%;">Register
+        <div class="reg">A</div>
+        <div class="reg">BC</div>
+        <div class="reg">DE</div>
+        <div class="reg">HL</div>
+        <div class="reg">PSW</div>
+        <div class="reg">PC</div>
+        <div class="reg">SP</div>
+        <div class="reg">Int-Reg</div>
+
+      </div>
+      <div style="width: 30%;">Flag
+        <div class="flag"> S </div>
+        <div class="flag"> Z </div>
+        <div class="flag"> AC </div>
+        <div class="flag"> P </div>
+        <div class="flag"> C</div>
+      </div>
     </div>
     <div class="outer">
       <div class="conv" id="conv1">
@@ -44,10 +57,22 @@
   </div>
   <div class="external_memory">
     <div class="memory">
-      <div class="memoryin">Memory display</div>
+       <p> start </p><input type="number" value="00" id="decimal">
+       <input type="button" value="OK" onclick="ok()">
+      <div class="memoryin">
+        <div class="arm">Address(Hex)</div>
+        <div class="arm">Address</div>
+        <div class="arm">Data</div>
+      </div>
+
     </div>
     <div class="io">
-      <div class="ioin">I/O Display</div>
+      <div class="ioin">
+        <div class="arm">Address(Hex)
+        </div>
+        <div class="arm">Address</div>
+        <div class="arm">Data</div>
+      </div>
     </div>
   </div>
 
